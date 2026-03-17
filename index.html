@@ -25,8 +25,6 @@ background-position:center;
 overflow:hidden;
 }
 
-/* INTRO */
-
 #inicio{
 animation:fade 2s;
 }
@@ -61,8 +59,6 @@ transform:scale(1.1);
 box-shadow:0 25px 80px rgba(0,0,0,.5);
 }
 
-/* CARTA */
-
 #carta{
 display:none;
 background:rgba(255,255,255,0.95);
@@ -77,12 +73,10 @@ backdrop-filter:blur(8px);
 
 #texto{
 font-size:26px;
-line-height:1.35;
+line-height:1.4;
 white-space:pre-wrap;
 font-family:'Playfair Display',serif;
 }
-
-/* CORAZONES */
 
 .corazon{
 position:absolute;
@@ -96,14 +90,10 @@ from{transform:translateY(100vh) scale(.6);}
 to{transform:translateY(-10vh) scale(1.3);}
 }
 
-/* FADE */
-
 @keyframes fade{
 from{opacity:0; transform:scale(.95);}
 to{opacity:1; transform:scale(1);}
 }
-
-/* YOUTUBE OCULTO */
 
 #player{
 position:absolute;
@@ -126,29 +116,41 @@ opacity:0;
 
 <div id="carta">
 <div id="texto"></div>
-<p style="margin-top:25px;color:#999;font-style:italic;">De mí, para ti ✨</p>
+<p style="margin-top:25px;color:#999;font-style:italic;">De mí, para ti 🤍</p>
 </div>
 
-<!-- MÚSICA OCULTA -->
 <iframe id="player"
 src="https://www.youtube.com/embed/B7iWKPAGNo0?autoplay=1&loop=1&playlist=B7iWKPAGNo0">
 </iframe>
 
 <script>
 
-let mensaje = `Hola, estoy amándote. Mucho.
-Siempre te amo. Siempre lo haré.
+let mensaje = `Hola Mery, te amo. 🤍  
+Se dice pronto, pero es un sentimiento único.  
+No sabes lo bonito que es estar contigo.
 
-Mi alma estará contigo al lado para saber cuántas veces necesitarás más amor,
-y si te sientes sin fuerzas, piénsame.
+Cometo errores, lo sé, y seguiré trabajando en mí toda la vida para hacerte la persona más feliz del mundo.
 
-Siempre estaremos juntos.
+Estaré siempre contigo. 🤍
 
-Te estaré viendo y pensando aunque no me veas.
-Porque mi amor es así,
-está en todos lados.
+Te amo como nadie ha amado ni amará nunca.  
+Quiero mis hijos contigo, y los hijos de mis hijos con tu apellido en su genealogía.
 
-Te amo.`;
+Tengo seguras muchas cosas en esta vida, y una de ellas es que vamos a pasar todo, y estaremos para siempre el uno para el otro.
+
+Para la eternidad, hasta que la muerte…
+
+No…
+
+Para la eternidad, y punto. 🤍
+
+Te amo.  
+Te amaré.
+
+Espero te haya gustado la canción.  
+Me gusta, apenas la escuché te imaginé a ti.
+
+De mí, para ti. 🤍`;
 
 let i=0;
 
@@ -165,27 +167,16 @@ function iniciar(){
 document.getElementById("inicio").style.display="none";
 document.getElementById("carta").style.display="block";
 
-/* activar música */
 document.getElementById("player").src += "";
 
-/* corazones */
-
 for(let i=0;i<35;i++){
-
 let c=document.createElement("div");
-
 c.className="corazon";
-
 c.innerHTML="🤍";
-
 c.style.left=Math.random()*100+"vw";
-
 c.style.animationDuration=(6+Math.random()*8)+"s";
-
 c.style.fontSize=(15+Math.random()*35)+"px";
-
 document.body.appendChild(c);
-
 }
 
 escribir();
