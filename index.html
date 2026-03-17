@@ -13,23 +13,27 @@ height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
+flex-direction:column;
 text-align:center;
 color:white;
 overflow:hidden;
-flex-direction:column;
 }
 
-/* BOTON GIGANTE */
-.botonCarta{
-padding:30px 60px;
-font-size:34px;
-border:none;
-border-radius:60px;
+#playBtn{
+font-size:60px;
 background:white;
 color:#ff5e78;
+border:none;
+border-radius:100px;
+width:120px;
+height:120px;
 cursor:pointer;
-box-shadow:0 15px 40px rgba(0,0,0,0.3);
-margin-top:20px;
+box-shadow:0 20px 50px rgba(0,0,0,.3);
+}
+
+#mensajeArriba{
+font-size:34px;
+margin-bottom:20px;
 }
 
 #carta{
@@ -38,8 +42,9 @@ background:white;
 color:#444;
 padding:40px;
 border-radius:20px;
-max-width:600px;
-box-shadow:0 25px 50px rgba(0,0,0,.25);
+max-width:620px;
+box-shadow:0 25px 60px rgba(0,0,0,.3);
+margin-top:30px;
 }
 
 #texto{
@@ -57,32 +62,21 @@ animation:flotar linear infinite;
 }
 
 @keyframes flotar{
-from{ transform:translateY(100vh);}
-to{ transform:translateY(-10vh);}
+from{transform:translateY(100vh);}
+to{transform:translateY(-10vh);}
 }
 </style>
 </head>
 
 <body>
 
-<div id="inicio">
-<h1 style="font-size:48px;">Hola Mery 🤍</h1>
-
-<button class="botonCarta" onclick="iniciar()">
-Pulsa aquí para leer tu carta ❤️
-</button>
-
-<br><br>
-
-<!-- MUSICA DENTRO DE LA WEB -->
-<iframe width="300" height="170"
-src="https://www.youtube.com/embed/04mfKJWDSzI"
-title="On Melancholy Hill"
-frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-</iframe>
-
+<div id="mensajeArriba">
+Mery… toca para escuchar y leer tu carta 🤍
 </div>
+
+<button id="playBtn" onclick="iniciar()">▶</button>
+
+<div id="player" style="margin-top:20px;"></div>
 
 <div id="carta">
 <h1 style="color:#ff5e78;">Para ti</h1>
@@ -110,13 +104,11 @@ setTimeout(escribir,35);
 }
 
 function iniciar(){
-document.getElementById("inicio").style.display="none";
-document.getElementById("carta").style.display="block";
-crearCorazones();
-escribir();
-}
 
-function crearCorazones(){
+// mostrar carta
+document.getElementById("carta").style.display="block";
+
+// crear corazones
 for(let i=0;i<25;i++){
 let c=document.createElement("div");
 c.className="corazon";
@@ -126,6 +118,14 @@ c.style.animationDuration=(6+Math.random()*6)+"s";
 c.style.fontSize=(12+Math.random()*30)+"px";
 document.body.appendChild(c);
 }
+
+// escribir texto
+escribir();
+
+// cargar musica
+document.getElementById("player").innerHTML =
+'<iframe width="320" height="180" src="https://www.youtube.com/embed/04mfKJWDSzI?autoplay=1&loop=1&playlist=04mfKJWDSzI" frameborder="0" allow="autoplay"></iframe>';
+
 }
 
 </script>
