@@ -7,7 +7,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Montserrat:wght@300&display=swap" rel="stylesheet">
 
 <style>
-
 body{
 margin:0;
 height:100vh;
@@ -17,11 +16,9 @@ align-items:center;
 text-align:center;
 color:white;
 font-family:'Montserrat',sans-serif;
-
 background:
 linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
 url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1920&auto=format&fit=crop");
-
 background-size:cover;
 background-position:center;
 overflow:hidden;
@@ -102,11 +99,19 @@ to{opacity:1}
 
 <div id="inicio">
 <h1>Hola Mery 🤍</h1>
-<p>Pulsa para escuchar y leer tu carta</p>
+<p>Pulsa aquí para leer tu carta</p>
 <button id="btn" onclick="iniciar()">Abrir</button>
 </div>
 
-<div id="player"></div>
+<div id="spotifyPlayer" style="display:none; margin-top:20px;">
+<iframe style="border-radius:12px"
+src="https://open.spotify.com/embed/track/gl1d_GdX0xw?utm_source=generator"
+width="300"
+height="80"
+frameBorder="0"
+allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+</iframe>
+</div>
 
 <div id="carta">
 <div id="texto"></div>
@@ -114,7 +119,6 @@ to{opacity:1}
 </div>
 
 <script>
-
 let mensaje = `Hola, estoy amándote. Mucho.
 Siempre te amo. Siempre lo haré.
 Mi alma estará contigo al lado para saber cuántas veces necesitarás más amor, y si te sientes sin fuerzas, piénsame.
@@ -134,12 +138,14 @@ setTimeout(escribir,38);
 
 function iniciar(){
 
+// ocultar inicio, mostrar carta
 document.getElementById("inicio").style.display="none";
 document.getElementById("carta").style.display="block";
 
-document.getElementById("player").innerHTML =
-'<iframe width="0" height="0" src="https://www.youtube.com/embed/04mfKJWDSzI?autoplay=1&loop=1&playlist=04mfKJWDSzI" allow="autoplay"></iframe>';
+// mostrar reproductor Spotify
+document.getElementById("spotifyPlayer").style.display="block";
 
+// corazones
 for(let i=0;i<20;i++){
 let c=document.createElement("div");
 c.className="corazon";
@@ -150,10 +156,9 @@ c.style.fontSize=(14+Math.random()*28)+"px";
 document.body.appendChild(c);
 }
 
+// escribir carta
 escribir();
-
 }
-
 </script>
 
 </body>
