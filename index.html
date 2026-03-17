@@ -7,6 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Montserrat:wght@300&display=swap" rel="stylesheet">
 
 <style>
+
 body{
 margin:0;
 height:100vh;
@@ -103,22 +104,18 @@ to{opacity:1}
 <button id="btn" onclick="iniciar()">Abrir</button>
 </div>
 
-<div id="spotifyPlayer" style="display:none; margin-top:20px;">
-<iframe style="border-radius:12px"
-src="https://open.spotify.com/embed/track/gl1d_GdX0xw?utm_source=generator"
-width="300"
-height="80"
-frameBorder="0"
-allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-</iframe>
-</div>
-
 <div id="carta">
 <div id="texto"></div>
 <p style="margin-top:25px;color:#999;font-style:italic;">De mí, para ti ✨</p>
 </div>
 
+<!-- AUDIO OCULTO -->
+<audio id="musica" preload="auto">
+<source src="musica.mp3" type="audio/mpeg">
+</audio>
+
 <script>
+
 let mensaje = `Hola, estoy amándote. Mucho.
 Siempre te amo. Siempre lo haré.
 Mi alma estará contigo al lado para saber cuántas veces necesitarás más amor, y si te sientes sin fuerzas, piénsame.
@@ -138,14 +135,13 @@ setTimeout(escribir,38);
 
 function iniciar(){
 
-// ocultar inicio, mostrar carta
 document.getElementById("inicio").style.display="none";
 document.getElementById("carta").style.display="block";
 
-// mostrar reproductor Spotify
-document.getElementById("spotifyPlayer").style.display="block";
+// reproducir música oculta
+document.getElementById("musica").play();
 
-// corazones
+// corazones flotando
 for(let i=0;i<20;i++){
 let c=document.createElement("div");
 c.className="corazon";
@@ -156,9 +152,9 @@ c.style.fontSize=(14+Math.random()*28)+"px";
 document.body.appendChild(c);
 }
 
-// escribir carta
 escribir();
 }
+
 </script>
 
 </body>
