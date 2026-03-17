@@ -19,7 +19,7 @@ overflow:hidden;
 }
 
 button{
-padding:20px 40px;
+padding:18px 35px;
 font-size:22px;
 border:none;
 border-radius:50px;
@@ -27,6 +27,7 @@ background:white;
 color:#ff5e78;
 cursor:pointer;
 box-shadow:0 10px 25px rgba(0,0,0,0.2);
+margin:8px;
 }
 
 #carta{
@@ -66,8 +67,11 @@ to{ transform:translateY(-10vh); }
 
 <div id="inicio">
 <h1>Hola Mery 🤍</h1>
+
+<button onclick="iniciar()">Leer tu carta ❤️</button>
 <br>
-<button onclick="iniciar()">Pulsa aquí para leer tu carta</button>
+<button onclick="musica()">Escuchar canción 🎶</button>
+
 </div>
 
 <div id="carta">
@@ -75,11 +79,6 @@ to{ transform:translateY(-10vh); }
 <p id="texto"></p>
 <p style="margin-top:20px;font-style:italic;color:#999;">De mí, para ti ✨</p>
 </div>
-
-<iframe width="0" height="0"
-src="https://www.youtube.com/embed/04mfKJWDSzI?autoplay=1&loop=1&playlist=04mfKJWDSzI"
-allow="autoplay">
-</iframe>
 
 <script>
 
@@ -105,6 +104,10 @@ document.getElementById("inicio").style.display="none";
 document.getElementById("carta").style.display="block";
 crearCorazones();
 escribir();
+}
+
+function musica(){
+window.open("https://www.youtube.com/watch?v=04mfKJWDSzI","_blank");
 }
 
 function crearCorazones(){
