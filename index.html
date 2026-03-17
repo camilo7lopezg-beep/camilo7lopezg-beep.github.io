@@ -16,18 +16,20 @@ align-items:center;
 text-align:center;
 color:white;
 overflow:hidden;
+flex-direction:column;
 }
 
-button{
-padding:18px 35px;
-font-size:22px;
+/* BOTON GIGANTE */
+.botonCarta{
+padding:30px 60px;
+font-size:34px;
 border:none;
-border-radius:50px;
+border-radius:60px;
 background:white;
 color:#ff5e78;
 cursor:pointer;
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
-margin:8px;
+box-shadow:0 15px 40px rgba(0,0,0,0.3);
+margin-top:20px;
 }
 
 #carta{
@@ -36,15 +38,13 @@ background:white;
 color:#444;
 padding:40px;
 border-radius:20px;
-max-width:520px;
+max-width:600px;
 box-shadow:0 25px 50px rgba(0,0,0,.25);
 }
 
-h1{ color:#ff5e78; }
-
 #texto{
-font-size:26px;
-line-height:1;
+font-size:28px;
+line-height:1.1;
 white-space:pre-wrap;
 font-weight:500;
 }
@@ -52,13 +52,13 @@ font-weight:500;
 .corazon{
 position:absolute;
 color:white;
-opacity:.25;
+opacity:.2;
 animation:flotar linear infinite;
 }
 
 @keyframes flotar{
-from{ transform:translateY(100vh); }
-to{ transform:translateY(-10vh); }
+from{ transform:translateY(100vh);}
+to{ transform:translateY(-10vh);}
 }
 </style>
 </head>
@@ -66,16 +66,26 @@ to{ transform:translateY(-10vh); }
 <body>
 
 <div id="inicio">
-<h1>Hola Mery 🤍</h1>
+<h1 style="font-size:48px;">Hola Mery 🤍</h1>
 
-<button onclick="iniciar()">Leer tu carta ❤️</button>
-<br>
-<button onclick="musica()">Bailemos 💃</button>
+<button class="botonCarta" onclick="iniciar()">
+Pulsa aquí para leer tu carta ❤️
+</button>
+
+<br><br>
+
+<!-- MUSICA DENTRO DE LA WEB -->
+<iframe width="300" height="170"
+src="https://www.youtube.com/embed/04mfKJWDSzI"
+title="On Melancholy Hill"
+frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+</iframe>
 
 </div>
 
 <div id="carta">
-<h1>Para ti</h1>
+<h1 style="color:#ff5e78;">Para ti</h1>
 <p id="texto"></p>
 <p style="margin-top:20px;font-style:italic;color:#999;">De mí, para ti ✨</p>
 </div>
@@ -106,18 +116,14 @@ crearCorazones();
 escribir();
 }
 
-function musica(){
-window.open("https://www.youtube.com/watch?v=04mfKJWDSzI","_blank");
-}
-
 function crearCorazones(){
-for(let i=0;i<20;i++){
+for(let i=0;i<25;i++){
 let c=document.createElement("div");
 c.className="corazon";
 c.innerHTML="🤍";
 c.style.left=Math.random()*100+"vw";
 c.style.animationDuration=(6+Math.random()*6)+"s";
-c.style.fontSize=(12+Math.random()*28)+"px";
+c.style.fontSize=(12+Math.random()*30)+"px";
 document.body.appendChild(c);
 }
 }
